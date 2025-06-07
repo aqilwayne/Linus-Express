@@ -1,0 +1,301 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+  background-color: #247429;
+  color: white;
+  padding: 15px 40px;
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+
+.logo-text h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Layout Styles */
+.content-container {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 210px;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #f0f0f0;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Home Page Specific Styles */
+.linus-banner {
+  max-width: 1000px; /* atau ukuran sesuai kebutuhan */
+  margin: auto;
+  border-radius: 35px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 7px;
+  margin-bottom: 20px;
+}
+
+.linus-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tribox {
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  object-fit: cover;
+  margin: auto;
+  overflow: hidden;
+}
+
+.content {
+  margin-top: 20px;
+  margin-right: 45px;
+}
+
+.info-box {
+  max-width: 450px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: gray;
+  text-align: center;
+}
+
+.info-header {
+  margin-bottom: 15px;
+  color: #247429;
+  text-align: left;
+}
+
+.active-bus {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  color: black;
+}
+
+.green-square {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #247429;
+  margin-right: 10px;
+}
+
+.text-link {
+  color: #247429;
+  text-decoration: none;
+}
+
+.detail-button {
+  display: block;
+  width: fit-content;
+  background-color: #247429;
+  color: white;
+  text-decoration: none;
+  padding: 10px 40px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.feedback-box {
+  max-width: 450px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cs-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  color: black;
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.cs-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.map-container {
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+.map {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+iframe {
+  width: 600px;
+  height: 300px;
+  border: none;
+}
+
+/* Detail Page Specific Styles */
+.location-title {
+  margin-bottom: 20px;
+}
+
+.bus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.bus-location {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bus-location h3 {
+  padding: 10px;
+  text-align: center;
+}
+
+.bus-map {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* CS Page Specific Styles */
+.chat-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+.chat-box {
+  padding: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.send-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px 20px;
+}
+
+.send-button {
+  background-color: #247429;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 25px;
+  cursor: pointer;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #f0f0f0;
+  padding: 15px 40px;
+  text-align: left;
+}
