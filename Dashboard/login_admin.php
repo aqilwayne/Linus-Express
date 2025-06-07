@@ -46,7 +46,7 @@ if(isset($_POST['login'])){
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header">
-                                        <h3 class="text-center font-weight-light my-4 text-success">Linus Express</h3>
+                                        <h2 class="text-center font-weight-light my-4 text-success">Linus Express</h2>
                                         <h4 class="text-center font-weight-light my-4">Admin Login</h4>
                                     </div>
                                     <div class="card-body">
@@ -64,13 +64,6 @@ if(isset($_POST['login'])){
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small">
-                                            <a href="register.php">Need an account? Sign up!</a>
-                                            <h6 style="margin-top:6px;" class="text-center font-weight-light">Atau</h6>
-                                            <a href="login_admin.php">Login sebagai admin</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
