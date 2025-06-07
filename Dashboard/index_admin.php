@@ -86,6 +86,7 @@ require '../cek.php';
                                                 FROM operasional o
                                                 JOIN bus b ON o.id_bus = b.id_bus
                                                 JOIN supir s ON o.id_supir = s.id_supir
+                                                ORDER BY o.id_bus ASC
                                                     ";
 
                                         $getdataops = mysqli_query($conn,$query);
