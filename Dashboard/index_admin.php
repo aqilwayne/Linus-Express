@@ -105,31 +105,31 @@ require '../cek.php';
                                             <td><?=htmlspecialchars($lokasi);?></td>
                                             <td><?=htmlspecialchars($jamoperasional);?></td>
                                             <td>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$id_barang;?>">
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$id_operasional;?>">
                                             Edit
                                             </button>
 
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?=$id_barang;?>">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?=$id_operasional;?>">
                                             Delete
                                             </button>
 
                                             <!-- Delete Modal -->
-                                            <div class="modal fade" id="delete<?=$id_barang;?>">
+                                            <div class="modal fade" id="delete<?=$id_operasional;?>">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Hapus Barang?</h4>
+                                                    <h4 class="modal-title">Hapus Data?</h4>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
 
                                                 <!-- Modal body -->
                                                 <form method="post">
                                                 <div class="modal-body">
-                                                    Anda yakin ingin menghapus <?=$nama;?>?<br><br>
-                                                    <input type="hidden" name="id_barang" value="<?=$id_barang;?>">
-                                                    <button class="btn btn-danger" type="submit"  name="deletebarang">Hapus</button>
+                                                    Anda yakin ingin menghapus <?=$bus;?>?<br><br>
+                                                    <input type="hidden" name="id_operasional" value="<?=$id_operasional;?>">
+                                                    <button class="btn btn-danger" type="submit"  name="delete-data-ops">Hapus</button>
                                                 </div>
                                                 </form>
 
@@ -140,24 +140,52 @@ require '../cek.php';
                                         </tr>
 
                                             <!-- Edit Modal -->
-                                            <div class="modal fade" id="edit<?=$id_barang;?>">
+                                            <div class="modal fade" id="edit<?=$id_operasional;?>">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Edit Barang</h4>
+                                                    <h4 class="modal-title">Edit Data</h4>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
 
                                                 <!-- Modal body -->
-                                                <form method="post">
+                                                <form method="post" action="">
                                                 <div class="modal-body">
-                                                    <input class="form-control" type="text" name="namabarang" value="<?=$nama;?>" required><br>
-                                                    <input class="form-control" type="text" name="deskripsi" value="<?=$deskripsi;?>" required><br>
-                                                    <input class="form-control" type="number" name="stok" value="<?=$stok;?>" required><br>
-                                                    <input type="hidden" name="id_barang" value="<?=$id_barang;?>">
-                                                    <button class="btn btn-primary" type="submit"  name="updatebarang">Submit</button>
+                                                    <!-- Bus -->
+                                                    <label>Bus</label><br>
+                                                        <select class="form-control" name="bus" required>
+                                                        <?php
+                                                            $getdatabus = mysqli_query($conn, "SELECT * FROM bus");
+                                                            while($row = mysqli_fetch_assoc($getdatabus)){ // Ganti menjadi fetch_assoc
+                                                                echo "<option value='{$row['id_bus']}'>{$row['nama_bus']}</option>";
+                                                            }
+                                                        ?>
+                                                        </select><br>
+
+                                                    <!-- Supir -->
+                                                    <label>Supir</label><br>
+                                                        <select class="form-control" name="supir" required>
+                                                        <?php
+                                                            $getdatasupir = mysqli_query($conn, "SELECT * FROM supir");
+                                                            while($row = mysqli_fetch_assoc($getdatasupir)){ // Ganti menjadi fetch_assoc
+                                                                echo "<option value='{$row['id_supir']}'>{$row['nama_supir']}</option>";
+                                                            }
+                                                        ?>
+                                                        </select><br>
+                                                    
+                                                    <input class="form-control" type="text" name="lokasi" value="<?=$lokasi;?>" required><br>
+
+                                                    <label>Waktu Mulai</label><br>
+                                                    <input class="form-control" type="time" name="mulai" value="<?=$mulai;?>" required><br>
+
+                                                    <label>Waktu Selesai</label><br>
+                                                    <input class="form-control" type="time" name="selesai" value="<?=$selesai;?>" required><br>
+
+                                                     <input type="hidden" name="id_operasional" value="<?=$id_operasional;?>">
+
+                                                    <button class="btn btn-primary" type="submit"  name="update-data-ops">Submit</button><br><br>
                                                 </div>
                                                 </form>
 
