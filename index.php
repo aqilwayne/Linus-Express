@@ -43,7 +43,7 @@ require 'cek.php';
                             </div>
                         </div>
                         <p>Lihat detail jadwal dan rute? Klik di sini.</p>
-                        <a href="detail.html" class="detail-button">Detail</a>
+                        <a href="detail.php" class="detail-button">Detail</a>
                     </div>
 
                     <div class="feedback-box">
@@ -60,9 +60,9 @@ require 'cek.php';
         </div>
     </div>
 
-    <footer>
-        <p>Copyright</p>
-    </footer>
+    <?php
+    require 'footer.php';
+    ?>
 </body>
 
 </html>

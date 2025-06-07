@@ -43,8 +43,8 @@ require 'cek.php';
         </div>
     </div>
 
-    <footer>
-        <p>Copyright</p>
-    </footer>
+    <?php
+    require 'footer.php';
+    ?>
 </body>
 </html>

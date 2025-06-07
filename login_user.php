@@ -66,7 +66,7 @@ if(isset($_POST['login'])){
                                     </div>
                                     <div class="card-footer text-center py-3">
                                         <div class="small">
-                                            <a href="register.php">Need an account? Sign up!</a>
+                                            <a href="register.php">Belum memiliki akun? Sign Up</a>
                                             <h6 style="margin-top:6px;" class="text-center font-weight-light">Atau</h6>
                                             <a href="./Dashboard/login_admin.php">Login sebagai admin</a>
                                     </div>
@@ -76,21 +76,9 @@ if(isset($_POST['login'])){
                     </div>
                 </main>
             </div>
-            <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
+            <?php
+            require 'footer.php';
+            ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
     </body>

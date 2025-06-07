@@ -37,7 +37,7 @@ require '../cek.php';
                             <div class="sb-sidenav-menu-heading">Halaman</div>
                             <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Bus Aktif
+                                Operasional
                             </a>
                             <a class="nav-link" href="../index.php">
                                 Halaman User
@@ -52,57 +52,58 @@ require '../cek.php';
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Stok Barang</h1>                           
+                        <h1 class="mt-4">Operasional Bus Lintas USU</h1>                           
                         <div class="card mb-4">
                             <div class="card-header">
                                 <!-- Button to Open the Modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                                Tambah Barang
+                                Tambah Data
                                 </button>
                                 <a href="export.php" class="btn btn-success">Export Data</a>
                             </div>
                             <div class="card-body">
-                            <?php
-                            $getdatastock = mysqli_query($conn, "SELECT * FROM stok WHERE stok < 1");
-                            $fetch = mysqli_fetch_array($getdatastock);
-
-                            if($fetch == True){
-                                $barang = $fetch['nama'];
-                            
-                            ?>
-                            <div class="alert alert-danger alert-dismissible">
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                <strong>Perhatian!</strong> Stok <u><b><?=$barang;?></b></u> sudah habis.
-                            </div>
-                            <?php
-                            };
-                            ?>
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Nama Barang</th>
-                                            <th>Deskripsi</th>
-                                            <th>Stok</th>
+                                            <th>Bus</th>
+                                            <th>Supir</th>
+                                            <th>Lokasi</th>
+                                            <th>Jam Operasional</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $i = 1;
-                                        $getdatastock = mysqli_query($conn,"SELECT * FROM stok");
-                                        while($data=mysqli_fetch_array($getdatastock)){
-                                            $nama = $data['nama'];
-                                            $deskripsi = $data['deskripsi'];
-                                            $stok = $data['stok'];
-                                            $id_barang = $data['id_barang'];
+                                        $query = "SELECT 
+                                                    b.id_bus,
+                                                    b.nama_bus, 
+                                                    s.id_supir,
+                                                    s.nama_supir, 
+                                                    o.id_operasional,
+                                                    o.lokasi, 
+                                                    o.mulai,  
+                                                    o.selesai  
+                                                FROM operasional o
+                                                JOIN bus b ON o.id_bus = b.id_bus
+                                                JOIN supir s ON o.id_supir = s.id_supir
+                                                    ";
 
+                                        $getdataops = mysqli_query($conn,$query);
+                                        while($data=mysqli_fetch_array($getdataops)){
+                                            $id_operasional = $data['id_operasional'];
+                                            $bus = $data['nama_bus'];
+                                            $supir = $data['nama_supir'];
+                                            $lokasi = $data['lokasi'];
+                                            $mulai = $data['mulai'];
+                                            $selesai = $data['selesai'];
+
+                                            $jamoperasional = htmlspecialchars($mulai).' - '.htmlspecialchars($selesai).' WIB';
                                         ?>
                                         <tr>
-                                            <td><?=$i++;?></td>
-                                            <td><?=$nama;?></td>
-                                            <td><?=$deskripsi;?></td>
-                                            <td><?=$stok;?></td>
+                                            <td><?=htmlspecialchars($bus);?></td>
+                                            <td><?=htmlspecialchars($supir);?></td>
+                                            <td><?=htmlspecialchars($lokasi);?></td>
+                                            <td><?=htmlspecialchars($jamoperasional);?></td>
                                             <td>
                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?=$id_barang;?>">
                                             Edit
@@ -195,27 +196,45 @@ require '../cek.php';
 
         <!-- Modal Header -->
         <div class="modal-header">
-            <h4 class="modal-title">Tambah Barang</h4>
+            <h4 class="modal-title">Tambah Data</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <!-- Modal body -->
          <form method="post">
         <div class="modal-body">
-            <input class="form-control" type="text" name="namabarang" placeholder="Nama Barang" required><br>
-            <input class="form-control" type="text" name="deskripsi" placeholder="Deskripsi Barang" required><br>
-            <input class="form-control" type="number" name="stock" placeholder="Stock"required><br>
-            <button class="btn btn-primary" type="submit"  name="addnewbarang">Submit</button><br><br>
-            <?php 
-            if ($errorMessageindex != ""){ 
-            ?>
-            <div class="alert alert-danger"><?=$errorMessageindex;?></div>
-            <?php 
-            }; 
-            ?>
+            <!-- Bus -->
+             <label>Bus</label><br>
+                <select class="form-control" name="bus" required>
+                <?php
+                    $getdatabus = mysqli_query($conn, "SELECT * FROM bus");
+                    while($row = mysqli_fetch_assoc($getdatabus)){ // Ganti menjadi fetch_assoc
+                        echo "<option value='{$row['id_bus']}'>{$row['nama_bus']}</option>";
+                    }
+                ?>
+                </select><br>
+
+            <!-- Supir -->
+             <label>Supir</label><br>
+                <select class="form-control" name="supir" required>
+                <?php
+                    $getdatasupir = mysqli_query($conn, "SELECT * FROM supir");
+                    while($row = mysqli_fetch_assoc($getdatasupir)){ // Ganti menjadi fetch_assoc
+                        echo "<option value='{$row['id_supir']}'>{$row['nama_supir']}</option>";
+                    }
+                ?>
+                </select><br>
+            
+            <input class="form-control" type="text" name="lokasi" placeholder="Lokasi" required><br>
+
+            <label>Waktu Mulai</label><br>
+            <input class="form-control" type="time" name="mulai" placeholder="Waktu Mulai"required><br>
+
+            <label>Waktu Selesai</label><br>
+            <input class="form-control" type="time" name="selesai" placeholder="Waktu Selesai"required><br>
+            <button class="btn btn-primary" type="submit"  name="add-data-ops">Submit</button><br><br>
         </div>
         </form>
-
         </div>
     </div>
     </div>

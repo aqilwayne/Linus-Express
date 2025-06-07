@@ -33,27 +33,23 @@ require 'cek.php';
             <div class="bus-grid">
                 <div class="bus-location">
                     <h3>Bus 1</h3>
-                    <img src="./images/map.png" alt="Lokasi Bus 1" class="bus-map">
+                    <div class="map-container">
+                        <iframe src="map.html" title="Peta Tracking Bus Linus"></iframe>
+                    </div>
                 </div>
                 <div class="bus-location">
                     <h3>Bus 2</h3>
-                    <img src="./images/map.png" alt="Lokasi Bus 2" class="bus-map">
-                </div>
-                <div class="bus-location">
-                    <h3>Bus 3</h3>
-                    <img src="./images/map.png" alt="Lokasi Bus 3" class="bus-map">
-                </div>
-                <div class="bus-location">
-                    <h3>Bus 4</h3>
-                    <img src="./images/map.png" alt="Lokasi Bus 4" class="bus-map">
+                    <div class="map-container">
+                        <iframe src="map.html" title="Peta Tracking Bus Linus"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>Copyright</p>
-    </footer>
+    <?php
+    require 'footer.php';
+    ?>
 </body>
 
 </html>
