@@ -27,3 +27,13 @@ if(isset($_POST['create-account'])){
         }
     }
 }
+
+//CREATE - Feedback User
+if (isset($_POST['submit-ulasan'])) {
+    $komentar = mysqli_real_escape_string($conn, $_POST['komentar']);
+    $rating = (int)$_POST['rating'];
+    $username = $_POST['username']; // ambil dari session login
+
+    $query = "INSERT INTO ulasan (username, komentar, rating) VALUES ('$username', '$komentar', $rating)";
+    mysqli_query($conn, $query);
+}

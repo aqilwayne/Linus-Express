@@ -35,9 +35,13 @@ require '../cek.php';
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Halaman</div>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="index_admin.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Operasional
+                            </a>
+                            <a class="nav-link" href="feedback_admin.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Feedback
                             </a>
                             <a class="nav-link" href="../index.php">
                                 Halaman User
