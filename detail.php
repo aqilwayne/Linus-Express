@@ -41,33 +41,33 @@ require 'cek.php';
         <div class="main-content">
             <h2 class="location-title">Cek Lokasi Bus Disini</h2>
 
-                                        <?php
-                                        $query = "SELECT 
-                                                    b.id_bus,
-                                                    b.nama_bus, 
-                                                    s.id_supir,
-                                                    s.nama_supir, 
-                                                    o.id_operasional,
-                                                    o.lokasi, 
-                                                    o.mulai,  
-                                                    o.selesai  
-                                                FROM operasional o
-                                                JOIN bus b ON o.id_bus = b.id_bus
-                                                JOIN supir s ON o.id_supir = s.id_supir
-                                                ORDER BY o.id_bus ASC
-                                                    ";
+    <?php
+    $query = "SELECT 
+                b.id_bus,
+                b.nama_bus, 
+                s.id_supir,
+                s.nama_supir, 
+                o.id_operasional,
+                o.lokasi, 
+                o.mulai,  
+                o.selesai  
+            FROM operasional o
+            JOIN bus b ON o.id_bus = b.id_bus
+            JOIN supir s ON o.id_supir = s.id_supir
+            ORDER BY o.id_bus ASC
+                ";
 
-                                        $getdataops = mysqli_query($conn,$query);
-                                        while($data=mysqli_fetch_array($getdataops)){
-                                            $id_operasional = $data['id_operasional'];
-                                            $bus = $data['nama_bus'];
-                                            $supir = $data['nama_supir'];
-                                            $lokasi = $data['lokasi'];
-                                            $mulai = $data['mulai'];
-                                            $selesai = $data['selesai'];
+    $getdataops = mysqli_query($conn,$query);
+    while($data=mysqli_fetch_array($getdataops)){
+        $id_operasional = $data['id_operasional'];
+        $bus = $data['nama_bus'];
+        $supir = $data['nama_supir'];
+        $lokasi = $data['lokasi'];
+        $mulai = $data['mulai'];
+        $selesai = $data['selesai'];
 
-                                            $jamoperasional = htmlspecialchars($mulai).' - '.htmlspecialchars($selesai).' WIB';
-                                        ?>
+        $jamoperasional = htmlspecialchars($mulai).' - '.htmlspecialchars($selesai).' WIB';
+    ?>
 
     <div class="bus-grid">
     <div class="bus-location">
