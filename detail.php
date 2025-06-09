@@ -11,6 +11,21 @@ require 'cek.php';
     <title>Detail Informasi - Linus Express USU</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+    .bus-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 20px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 200px;
+        border: none;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
     .info-list {
         list-style: none;
         padding-left: 0;
@@ -18,7 +33,7 @@ require 'cek.php';
     }
 
     .info-list li {
-        margin: 10px;
+        margin-bottom: 4px;
     }
 </style>
 </head>
@@ -69,7 +84,7 @@ require 'cek.php';
         $jamoperasional = htmlspecialchars($mulai).' - '.htmlspecialchars($selesai).' WIB';
     ?>
 
-    <div class="bus-grid">
+<div class="bus-grid">
     <div class="bus-location">
         <div class="card bg-success text-white mb-4">
             <div class="card-body fs-5 fw-semibold"><?= htmlspecialchars($bus); ?></div>
@@ -78,9 +93,9 @@ require 'cek.php';
 
             <div class="card-footer d-flex flex-column justify-content-center">
                 <ul class="info-list">
-                    <li><strong>Nomor Bus:</strong> <?= htmlspecialchars($bus ?? 'Tidak tersedia'); ?></li>
-                    <li><strong>Nama Supir:</strong> <?= htmlspecialchars($supir ?? 'Tidak tersedia'); ?></li>
-                    <li><strong>Jam Operasional:</strong> <?= htmlspecialchars($jamoperasional ?? 'Tidak tersedia'); ?></li>
+                    <li>🚍 <strong>Nomor Bus:</strong> <?= htmlspecialchars($bus ?? 'Tidak tersedia'); ?></li>
+                    <li>🧑 <strong>Nama Supir:</strong> <?= htmlspecialchars($supir ?? 'Tidak tersedia'); ?></li>
+                    <li>⏰ <strong>Jam Operasional:</strong> <?= htmlspecialchars($jamoperasional ?? 'Tidak tersedia'); ?></li>
                 </ul>
             </div>
         </div>
