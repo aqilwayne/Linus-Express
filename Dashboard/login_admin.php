@@ -34,7 +34,7 @@ if(isset($_POST['login'])){
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>User Login - Linus Express</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-success">
@@ -63,26 +63,19 @@ if(isset($_POST['login'])){
                                                 <button class="btn btn-primary" name="login">Login</button>
                                             </div>
                                         </form>
+                                        <div class="card-footer text-center py-3">
+                                        <div class="small">
+                                            <a href="../login_user.php">Login sebagai user</a>
+                                    </div>
                                     </div>
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
-            <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+            <?php
+            require '../footer.php';
+            ?>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
